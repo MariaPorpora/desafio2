@@ -1,0 +1,221 @@
+*{
+    margin: 0;
+    padding: 0;
+box-sizing: border-box;
+}
+
+/*paletas de colores*/
+
+:root{
+    --color1: #14213d;
+    --color2: #fca311;
+    --color3: #e5e5e5;
+    --color4: #ffffff;
+}
+
+
+
+body{
+    min-height: 100vh;
+    
+}
+
+.grid-container{
+    display: grid;
+    grid-template-columns: 1fr;
+    grid-template-rows: auto auto 250px;
+    grid-template-areas: 
+    "header"
+    "main"
+    "footer";
+}
+
+.encabezado{
+    grid-area: header;
+    width: 100%;
+
+}
+
+.navbar{
+    background-color: #fca311;
+    width: 100%;
+    height: max-content;
+    display: flex;
+    justify-content: space-evenly;
+    align-items:center ;
+    position:sticky;
+    top:0;
+    overflow: hidden;
+}
+
+.navbar ul{
+    list-style: none;
+
+}
+
+.navbar ul li{
+    display: inline-block;
+    margin: 20px;
+    padding: 10px;
+
+}
+
+.navbar ul li a::after{
+    content: "";
+    width: 100%;
+    height: 2px;
+    background-color: white;
+    position: absolute;
+    left: 0;
+    bottom: 0;
+    transform: scale(0);
+    transform-origin: left;
+    transition: transform .25s ease;
+
+}
+
+
+.navbar ul li a:hover::after{
+    transform: scale(1);
+}
+
+
+.logo img{
+    height: 200px;
+    width: 200px;
+    transition: all 500ms;
+}
+
+.banner{
+    width: 100%;
+    background-image: url(../img/hornito.jpg);
+    height: 650px;
+    background-position: center center;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    flex-direction: column;
+    background-attachment: fixed; /*para q el fondo quede fijo*/
+}
+
+.banner h1{
+    width: 100%;
+    text-align: center;
+    height: 100%;
+    background-color: rgba(128, 128, 128, 0.393);
+    line-height: 650PX;
+    letter-spacing: 5px;
+    font-size: 6rem;
+}
+
+
+/*estilos de main*/
+
+
+.main-content{
+    grid-area: main;
+
+}
+
+
+.main-content h2{
+margin: 50px;
+text-align: center;
+letter-spacing: 2px;
+font-size: 2.5rem;
+}
+
+
+.main-img{
+    height: 600px;
+    width: 600px;
+}
+
+.main-img img{
+height: 100%;
+width: 100%;
+object-fit: cover;
+object-position: center center;
+}
+
+.main-conteiner{
+    display:flex;
+    justify-content: space-evenly;
+    align-items: center;
+    margin: 50px;
+
+}
+
+.formulario{  
+    background-color: #fca2116c;
+    padding: 10px;
+    width: 100%;
+    height: 100%;
+    border-radius: 4px;
+
+}
+
+.form-input{
+    padding: 10px;
+    margin: 20px 20px 20px 0;
+    width: 100%;
+    border-radius: 4px;
+    height: 50%;
+    border: none;
+}
+
+.main-form{
+    height: max-content;
+    box-shadow: 5px 10px 5px gray;
+    border-radius: 4px;
+    width: 600px;
+}
+
+
+
+.pie-de-pag{
+    grid-area: footer;
+}
+
+
+@media (max-width:412px){
+.grid-container{
+    grid-template-columns: 1fr 1fr;
+    grid-template-rows: auto auto 200px;
+    grid-template-areas: "header" "header"
+    "main" "main"
+    "footer" "footer";
+}
+
+.navbar{
+    flex-direction: column;
+    position: static;
+}
+
+.nav ul li{
+    display: block;
+}
+
+.navbar ul li a{
+    font-size: 1.5rem;
+}
+
+.banner{
+    font-size: 2rem;
+    font-weight: bold;
+    color: white;
+}
+
+.main-conteiner{
+    flex-direction: column;
+    justify-content: center;
+    align-content:center ;
+}
+
+.main-img{
+    height:300px ;
+    width: 300px;
+}
+
+
+}
